@@ -25,6 +25,8 @@ jobs:
         run: |
           npm ci
           npm run build
+          # prevent GitHub Pages from processing with Jekyll (which can cause README to be served)
+          echo > dist/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
